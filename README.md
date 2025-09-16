@@ -1,10 +1,12 @@
 # Proyecto React Primera entrega
 
 **Descripción**
+
 Este repositorio fue creado como parte de la primera entrega del curso de React de Coderhouse.
 Se trata de una tienda de bebidas en la que se aplicaron los conceptos aprendidos hasta la fecha.
 
 **Tecnologías utilizadas** 
+
 React
 JavaScript
 HTML5
