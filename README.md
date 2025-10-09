@@ -2,7 +2,7 @@
 
 **Descripción**
 
-Este repositorio fue creado como parte de la primera entrega del curso de React de Coderhouse.
+Este repositorio fue creado como parte de la segunda entrega del curso de React de Coderhouse.
 Se trata de una tienda de bebidas en la que se aplicaron los conceptos aprendidos hasta la fecha.
 
 **Tecnologías utilizadas** 
