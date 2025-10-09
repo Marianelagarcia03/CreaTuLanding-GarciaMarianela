@@ -12,6 +12,11 @@ JavaScript
 HTML5
 CSS
 
+## Navegabilidad
+Demostracion de la navegabilidad:
+public/demo/navegacion.gif
+
+
 Autora
 Marianela García
 
