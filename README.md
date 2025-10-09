@@ -1,4 +1,4 @@
-# Proyecto React Primera entrega
+# Proyecto React segunda pre entrega
 
 **Descripción**
 
