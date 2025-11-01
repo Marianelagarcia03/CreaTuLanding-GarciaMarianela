@@ -1,36 +1,25 @@
-import logo from "../assets/logo.png";
-import { Carrito } from "./Carrito";
 import { NavLink } from "react-router-dom";
-import data from "../data/productos.json";
+import logo from "../assets/logo.png";
+import { CartWidget } from "./CartWidget";
 
-const category = data.map((prod) => prod.categoria);
-const unicacategoria = new Set(category);
+export const NavBar = () => {
+  return (
+    <nav className="navBar">
+      <img src={logo} alt="Logo" className="logo" />
 
-export const NavBar = () => (
-  <nav className="navBar">
-    <img src={logo} alt="Logo" className="logo" />
-    <ul>
-      <li>
-        <NavLink to="/">
-          Home
-        </NavLink>
-      </li>
-
-      {[...unicacategoria].map((categoria) => (
-        <li key={categoria}>
-          <NavLink to={`/category/${categoria}`} >
-            {categoria}
-          </NavLink>
+      <ul>
+        <li>
+          <NavLink to="/">Home</NavLink>
         </li>
-      ))}
+        <li>
+          <NavLink to="/category/Bebidas">Bebidas</NavLink>
+        </li>
+        <li>
+          <NavLink to="/category/Combos">Combos</NavLink>
+        </li>
+      </ul>
 
-      <li>
-        <NavLink to="/contact" >
-          Contacto
-        </NavLink>
-      </li>
-    </ul>
-
-    <Carrito />
-  </nav>
-);
+      <CartWidget />
+    </nav>
+  );
+};

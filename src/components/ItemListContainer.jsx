@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import salud from "../assets/salud.png";
-import data from "../data/productos.json";
-import ProductCard from "./ProductCard";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
+import ItemList from "../components/ItemList";
 
 const ItemListContainer = ({ saludo }) => {
   const { categoriaId } = useParams();
@@ -21,18 +27,28 @@ const ItemListContainer = ({ saludo }) => {
       setShowSaludo(false);
     }
 
-    new Promise((resolve, reject) => {
-      setTimeout(() => resolve(data), 2000);
-    }).then((response) => {
-      if (!categoriaId) {
-        setProducts(response);
-      } else {
-        const filtered = response.filter(
-          (i) => i.categoria.toLowerCase() === categoriaId.toLowerCase()
-        );
-        setProducts(filtered);
-      }
-    });
+    const db = getFirestore();
+    const productosRef = categoriaId
+      ? query(
+          collection(db, "productos"),
+          where("categoria", "==", categoriaId)
+        )
+      : collection(db, "productos");
+
+    getDocs(productosRef)
+      .then((snapshot) => {
+        if (snapshot.empty) {
+          console.log("No se encontraron productos");
+          setProducts([]);
+        } else {
+          const productosFirebase = snapshot.docs.map((document) => ({
+            id: document.id,
+            ...document.data(),
+          }));
+          setProducts(productosFirebase);
+        }
+      })
+      .catch((error) => console.error("Error al obtener productos", error));
 
     return () => clearTimeout(saludoTimer);
   }, [categoriaId]);
@@ -45,14 +61,7 @@ const ItemListContainer = ({ saludo }) => {
           <img src={salud} alt="saludo" />
         </div>
       ) : (
-        <div className="product-list">
-          <h2>Productos disponibles</h2>
-          <div className="product-flex">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        <ItemList products={products} />
       )}
     </>
   );
