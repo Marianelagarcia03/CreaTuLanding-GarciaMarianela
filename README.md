@@ -33,7 +33,7 @@ Firebase
 Autora
 Marianela García
 
-# Clonar el repositorio
+ **Clonar el repositorio**
 git clone https://github.com/Marianelagarcia03/CreaTuLanding-GarciaMarianela.git
 
 
