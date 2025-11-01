@@ -27,7 +27,7 @@ Desde la página de detalle del producto, podrás seleccionar la cantidad y agre
 En el carrito, podrás:
    - Ver todos los productos agregados.
    - Eliminar productos.
-   - 
+
 **Generar una orden de compra**
 
 Al finalizar, podrás completar un formulario con tus datos para generar una orden.
