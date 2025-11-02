@@ -36,9 +36,13 @@ Al finalizar, podrás completar un formulario con tus datos para generar una ord
 **Tecnologías utilizadas** 
 
 React
+
 JavaScript
+
 HTML5
+
 CSS
+
 Firebase
 
 Autora
